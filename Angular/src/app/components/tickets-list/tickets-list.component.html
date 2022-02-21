@@ -1,0 +1,53 @@
+<div class ="container">
+    <div class = "card">
+        <h3 class = "text-center">Tickets List</h3>
+        <div class = "card-body">
+            <table class = "table table-striped">
+                <thead>
+                    <th>ticket_id</th>
+                    <th>raisedby</th>
+                    <th>typeOfIssue</th>
+                    <th>raisedon</th>
+                    <th>resolved</th>
+                    <th>resolvedon</th>
+                    <th>resolvedby</th>
+                    <th>priority</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let ticket of tickets">
+                        <td> {{ticket.ticket_id}} </td>
+                        <td> {{ticket.raisedby}} </td>
+                        <td> {{ticket.typeOfIssue}} </td>
+                        <td> {{ticket.raisedon}} </td>
+                        <td> {{ticket.resolved}} </td>
+                        <td> {{ticket.resolvedon}} </td>
+                        <td> {{ticket.resolvedby}} </td>
+                        <td> {{ticket.priority}} </td>
+                        <td><button (click)="deleteTicket(ticket.ticket_id)"class="btn btn-info">Delete</button>
+                            <button (click)="updateTicket(ticket.ticket_id)"class="btn btn-info">Update</button>
+                     </td>
+                    
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <label for="name">DEPT NO</label>
+            <select type="text" id="deptNum" required [(ngModel)]="deptNum" name="deptNum" >
+              <option>1</option>
+              <option>2</option>
+            </select>
+            <button (click)="itEmployeeReport(deptNum)"class="btn btn-info">generate employees</button>
+          </div>
+          <div class="form-group">
+            <label for="name">From</label>
+            <input type="text" class="form-control" id="raisedon" required [(ngModel)]="raisedon" name="raisedon"/>
+            <label for="name">To</label>
+            <input type="text" class="form-control" id="raisedon1" required [(ngModel)]="raisedon1" name="raisedon1"/>
+            <button (click)="monthlyReport(raisedon,raisedon1)"class="btn btn-info">generate monthly monthlyReport</button></div>
+        <div><button (click)="exportToPdf()"class="btn btn-info">Pdf file</button>
+       
+      
+
+</div>
